@@ -1,17 +1,8 @@
+{% assign navPages = collections.all | eleventyNavigation %}
 <ul>
-  <li>
-    <a href="/">Home</a>
+{%- for entry in navPages %}
+  <li{% if entry.url == page.url %} class="current-menu-item"{% endif %}>
+    <a href="{{ entry.url }}">{{ entry.title }}</a>
   </li>
-  <li>
-    <a href="/about/">About Me</a>
-  </li>
-  <li>
-    <a href="/services/">Services</a>
-  </li>
-  <li>
-    <a href="/pricing/">Pricing</a>
-  </li>
-  <li>
-    <a href="/faq/">FAQs</a>
-  </li>
+{%- endfor %}
 </ul>
