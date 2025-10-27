@@ -5,55 +5,51 @@ layout: default
 eleventyNavigation:
   key: FAQ
   order: 5
+faqs:
+  - title: "Partnering with Miss Independent Financials"
+    items:
+      - question: "What types of businesses do you work with?"
+        answer: "I specialize in working with small businesses, freelancers, and solo proprietors across a variety of industries including retail, non-profits, and creative services. Whether you're just starting out or have been in business for years, I can tailor my services to fit your needs."
+      - question: "How do you ensure my financial data stays secure?"
+        answer: "Security is a top priority. I use secure, encrypted file-sharing tools and follow best practices to keep your data confidential and protected. I'm also happy to sign a confidentiality agreement if needed."
+      - question: "How often will I hear from you?"
+        answer: "I'll be in touch regularly depending on your service package — usually monthly or weekly. I also keep lines of communication open for any questions or support you may need."
+  - title: "Services"
+    items:
+      - question: "Do you offer virtual/remote bookkeeping services?"
+        answer: "Yes! I work with clients remotely from Massachusetts to South Florida. All communication, document sharing, and reporting can be done securely online — making the process simple and stress-free for you."
+      - question: "What bookkeeping software do you use?"
+        answer: "I primarily work with QuickBooks Online, but experienced with Blackbaud products as well. Working with a consultant means I am expecting to familiarize myself with the platforms that you have invested in and make recommendations for others that will meet your business needs. I can also assist with setup and training if you're new to bookkeeping software."
+      - question: "Do you offer one-time or catch-up bookkeeping?"
+        answer: "Absolutely. Whether you're behind on your books or just need help preparing for tax season, I offer catch-up and clean-up services to get you back on track."
+      - question: "Do you provide financial reporting?"
+        answer: "Yes! I provide easy-to-understand financial reports such as profit & loss, balance sheets, and cash flow statements so you can see exactly how your business is doing."
+      - question: "Can you work with my accountant or tax preparer?"
+        answer: "Yes, collaboration is key! I'm happy to work directly with your accountant to ensure everything is accurate and ready for tax time."
+  - title: "Getting Started"
+    items:
+      - question: "How do I get started?"
+        answer: "Getting started is easy! Simply [fill out the contact form](#) or [book a free consultation](#) and we'll set up a quick discovery call to talk about your business needs. From there, I'll provide a personalized quote and next steps."
+      - question: "How much do your services cost?"
+        answer: "Pricing depends on the size of your business and the complexity of your needs. I offer custom packages to ensure you're only paying for what you need. I'm happy to provide a free quote after a short consultation."
 ---
 
-<div class="wpb_row vc_row-fluid standard-section section  section-no-parallax stretch" data-speed="1" style="padding-top: 120px">
+<div class="wpb_row vc_row-fluid standard-section section  section-no-parallax stretch" data-speed="1" style="padding-top: 50px">
   <div class="col span_12 color-dark left">
     <div class="vc_col-sm-12 wpb_column column_container col no-padding color-dark" style="" data-animation="" data-delay="">
       <div class="wpb_wrapper">
         <h2 class="headline font-special fontsize-xl fontweight-700 lh-inherit align-center transform-uppercase" style="margin: 0 0 20px 0">FAQs</h2>
+        {% for faq in faqs %}
+        <h3 class="headline font-special fontsize-l fontweight-700 lh-inherit align-center transform-uppercase" style="margin: 0 0 20px 0">{{ faq.title }}</h3>
         <div class="headline font-inherit fontsize-l fontweight-inherit lh-inherit transform-inherit" style="margin: 0 0 20px 0; color: #999">
+          {% for item in faq.items %}
           <details>
-            <summary>What types of businesses do you work with?</summary>
-            <p>I specialize in working with small businesses, freelancers, and solo proprietors across a variety of industries including retail, non-profits, and creative services. Whether you're just starting out or have been in business for years, I can tailor my services to fit your needs.</p>
+            <summary>{{ item.question }}</summary>
+            <p class="fontsize-m" style="padding-left:30px">{{ item.answer }}</p>
           </details>
-          <details>
-            <summary>Do you offer virtual/remote bookkeeping services?</summary>
-            <p>Yes! I work with clients remotely from Massachusetts to South Florida. All communication, document sharing, and reporting can be done securely online — making the process simple and stress-free for you.</p>
-          </details>
-          <details>
-            <summary>What bookkeeping software do you use?</summary>
-            <p>I primarily work with QuickBooks Online, but experienced with Blackbaud products as well.  Working with a consultant means I am expecting to familiarize myself with the platforms that you have invested in and make recommendations for others that will meet your business needs. I can also assist with setup and training if you're new to bookkeeping software.</p>
-          </details>
-          <details>
-            <summary>How do you ensure my financial data stays secure?</summary>
-            <p>Security is a top priority. I use secure, encrypted file-sharing tools and follow best practices to keep your data confidential and protected. I’m also happy to sign a confidentiality agreement if needed.</p>
-          </details>
-          <details>
-            <summary>How do I get started?</summary>
-            <p>Getting started is easy! Simply [fill out the contact form](#) or [book a free consultation](#) and we’ll set up a quick discovery call to talk about your business needs. From there, I’ll provide a personalized quote and next steps.</p>
-          </details>
-          <details>
-            <summary>Do you offer one-time or catch-up bookkeeping?</summary>
-            <p>Absolutely. Whether you’re behind on your books or just need help preparing for tax season, I offer catch-up and clean-up services to get you back on track.</p>
-          </details>
-          <details>
-            <summary>How much do your services cost?</summary>
-            <p>Pricing depends on the size of your business and the complexity of your needs. I offer custom packages to ensure you're only paying for what you need. I’m happy to provide a free quote after a short consultation.</p>
-          </details>
-          <details>
-            <summary>Can you work with my accountant or tax preparer?</summary>
-            <p>Yes, collaboration is key! I’m happy to work directly with your accountant to ensure everything is accurate and ready for tax time.</p>
-          </details>
-          <details>
-            <summary>How often will I hear from you?</summary>
-            <p>I’ll be in touch regularly depending on your service package — usually monthly or weekly. I also keep lines of communication open for any questions or support you may need.</p>
-          </details>
-          <details>
-            <summary>Do you provide financial reporting?</summary>
-            <p>Yes! I provide easy-to-understand financial reports such as profit & loss, balance sheets, and cash flow statements so you can see exactly how your business is doing.</p>
-          </details>
+          {% endfor %}
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
