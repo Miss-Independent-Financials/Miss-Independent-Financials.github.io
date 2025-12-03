@@ -5,59 +5,57 @@ layout: default
 eleventyNavigation:
   key: Home
   order: 1
+hero:
+  text: Accurate, reliable bookkeeping services so you can focus on growing your business.
+  image: /assets/img/logo.webp
+services:
+  - title: Quickbooks Expertise
+    icon: fa-power-off
+    description: Purchased QuickBooks but not sure where to start (or how to manage it)? As a Certified QuickBooks Consultant, let me handle everything from technical setup to daily financial record management, freeing you to focus on your core business.
+    link: /services/
+  - title: Bookkeeping Services
+    icon: sl-calculator
+    description: Miss Independent Financials can handle everything from Accounts Receivable and Accounts Payable, Bank Reconciling, Payroll, Journal Entries and Financial Reporting. Our clients enjoy peace of mind knowing their business finances are in great hands.
+    link: /services/
+  - title: Consulting & Guidance
+    icon: sl-users
+    description: Leverage 25 years of business experience to provide the guidance you need to grow your business. I partner with clients at any stage of their business from start-up, to daily management to strategeic expansion.
+services_list:
+  - "Monthly Bookkeeping"
+  - "Catch Up and Clean Up"
+  - "Accounts Payable/Receivable"
+  - "Payroll Services"
+  - "Financial Reports"
+  - "Software Setup & Expertise (QuickBooks)"
 ---
 
   <div class="wpb_row vc_row-fluid standard-section section section-no-parallax stretch bg-stretch" style="background-color: #44bdbd; padding-top: 50px; padding-bottom: 0">
     <div class="col span_12 color-dark left">
       <div class="vc_col-sm-12 wpb_column column_container col no-padding color-dark" style="" data-animation="fade-in-from-right" data-delay="0">
         <div class="wpb_wrapper">
-          <img src="/assets/img/logo.webp" style="float:right;max-width:300px">
-          <h2 class="headline font-inherit fontsize-xxl fontweight-300 lh-inherit align-left transform-inherit parawidth" style="margin: 0 0 20px 0">Accurate, reliable bookkeeping services so you can focus on growing your business.</h2>
+          <img src="{{ hero.image }}" style="float:right;max-width:300px">
+          <h2 class="headline font-inherit fontsize-xxl fontweight-300 lh-inherit align-left transform-inherit parawidth" style="margin: 0 0 20px 0">{{ hero.text }}</h2>
         </div>
       </div>
     </div>
   </div>
   <div class="wpb_row vc_row-fluid standard-section section section-no-parallax stretch" data-speed="1" style="padding-top: 100px; padding-bottom: 100px">
     <div class="col span_12 color-dark left">
-      <div class="vc_col-sm-4 wpb_column column_container col no-padding color-dark" style="" data-animation="" data-delay="">
+      {% for service in services %}
+      <div class="vc_col-sm-4 wpb_column column_container col no-padding color-dark" data-animation="" data-delay="">
         <div class="wpb_wrapper">
           <div class="iconbox wpb_content_element iconbox-style-2 icon-color-accent color-dark clearfix">
-            <div class="iconbox-icon"><i class="fa fa-power-off boxicon" style=""></i></div>
+            <div class="iconbox-icon"><i class="fa {{ service.icon }} boxicon"></i></div>
             <div class="iconbox-content">
-              <h3>Quickbooks Expertise</h3>
+              <h3>{{ service.title }}</h3>
               <p>
-              <div>Purchased QuickBooks but not sure where to start (or how to manage it)? As a Certified QuickBooks Consultant, let me handle everything from technical setup to daily financial record management, freeing you to focus on your core business.</div>
-              <a href="/services/" target="_self" class="button color-9 small" style="border-radius: 2px"><i class='fa fa-caret-right'></i>Learn more</a></p>
+              <div>{{ service.description }}</div>
+              <a href="{{ service.link }}" target="_self" class="button color-9 small" style="border-radius: 2px"><i class='fa fa-caret-right'></i>Learn more</a></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="vc_col-sm-4 wpb_column column_container col no-padding color-dark" style="" data-animation="" data-delay="">
-        <div class="wpb_wrapper">
-          <div class="iconbox wpb_content_element iconbox-style-2 icon-color-accent color-dark clearfix">
-            <div class="iconbox-icon"><i class="fa sl-calculator boxicon" style=""></i></div>
-            <div class="iconbox-content">
-              <h3>Bookkeeping Services</h3>
-              <p>
-              <div><strong>Miss Independent Financials can</strong> handle everything from Accounts Receivable and Accounts Payable, Bank Reconciling, Payroll, Journal Entries and Financial Reporting. Our clients enjoy peace of mind knowing their business finances are in great hands.</div>
-              <a href="/services/" target="_self" class="button color-9 small" style="border-radius: 2px"><i class='fa fa-caret-right'></i>Learn more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vc_col-sm-4 wpb_column column_container col no-padding color-dark" style="" data-animation="" data-delay="">
-        <div class="wpb_wrapper">
-          <div class="iconbox wpb_content_element iconbox-style-2 icon-color-accent color-dark clearfix">
-            <div class="iconbox-icon"><i class="fa sl-users boxicon" style=""></i></div>
-            <div class="iconbox-content">
-              <h3>Consulting &amp; Guidance</h3>
-              <p>
-              <div>Leverage 25 years of business experience to provide the guidance you need to grow your business. I partner with clients at any stage of their business <strong>from start-up, to daily management to strategeic expansion.</strong></div>
-              <a href="/services/" target="_self" class="button color-9 small" style="border-radius: 2px"><i class='fa fa-caret-right'></i>Learn more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
   <div class="wpb_row vc_row-fluid full-width-section section section-no-parallax stretch" data-speed="1" style="">
@@ -68,12 +66,9 @@ eleventyNavigation:
           <div class="wpb_text_column wpb_content_element">
             <div class="wpb_wrapper">
               <ul>
-                <li>Monthly Bookkeeping</li>
-                <li>Catch Up and Clean Up</li>
-                <li>Accounts Payable/Receivable</li>
-                <li>Payroll Services</li>
-                <li>Financial Reports</li>
-                <li>Software Setup & Expertise (QuickBooks)</li>
+                {% for item in services_list %}
+                <li>{{ item }}</li>
+                {% endfor %}
               </ul>
             </div>
           </div>
