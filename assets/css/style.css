@@ -4,6 +4,10 @@ body {
   line-height: 1.9;
 }
 
+p, ul, li, summary {
+  font-size: 13px !important;
+}
+
 .wrapall,
 .boxed-layout {
   background-color: #ffffff;
