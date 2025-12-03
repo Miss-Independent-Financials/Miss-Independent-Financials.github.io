@@ -1,0 +1,70 @@
+<script type="text/javascript" src="//maps.google.com/maps/api/js?key="></script>
+
+<div class="vc_col-sm-6 wpb_column column_container col no-padding color-dark" style="" data-animation="" data-delay="">
+  <div class="wpb_wrapper">
+    <div id="map1" style="height: 460px; position: relative; overflow: hidden;" class="google_map fullsection wpb_content_element">
+    </div>
+    <script type="text/javascript">
+
+      var latlng = new google.maps.LatLng(0, 0);
+      var myOptions = {
+        zoom: 12,
+        center: latlng,
+        scrollwheel: false,
+        disableDefaultUI: false,
+        scaleControl: false,
+        // mapTypeControl: false,
+        //rotateControl: false,
+        panControl: false,
+        //scaleControl: false,
+        streetViewControl: false,
+        styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }],
+        //overviewMapControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map1 = new google.maps.Map(document.getElementById("map1"),
+        myOptions);
+
+      var geocoder_map1 = new google.maps.Geocoder();
+      var address = 'PO Box 49 Sagamore MA 02561';
+      geocoder_map1.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map1.setCenter(results[0].geometry.location);
+          var image = "/assets/img/marker.webp";
+          var marker = new google.maps.Marker({
+            map: map1,
+            icon: image,
+            position: map1.getCenter()
+          });
+
+          var contentString = 'Miss Independent Financials - PO Box 49, Sagamore, MA 02561';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+          google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map1, marker);
+          });
+
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+
+      jQuery(document).ready(function ($) {
+        $(".wpb_accordion_section, .wpb_tabs").click(function () {
+          var center = map1.getCenter();
+          google.maps.event.trigger(map1, "resize");
+          map1.setCenter(center);
+        });
+      });</script>
+    <h2 class="headline font-special fontsize-m fontweight-700 lh-inherit align-left transform-uppercase " style="margin: 0 0 20px 0;">Find Us</h2>
+    <div class="wpb_text_column wpb_content_element ">
+      <div class="wpb_wrapper">
+        <p><i class="fa fa-building minti-icon" style="color:#888888 !important; font-size: 14px; margin: 0px 0px 0px 0px"></i>&nbsp; PO Box 49, Sagamore, MA 02561</p>
+        <p><i class="fa fa-phone minti-icon" style="color:#888888 !important; font-size: 14px; margin: 0px 0px 0px 0px"></i> 508-827-2058</p>
+        <p><i class="fa fa-envelope minti-icon" style="color:#888888 !important; font-size: 14px; margin: 0px 0px 0px 0px"></i>&nbsp;&nbsp;<a href="mailto:melissa@mifinancials.com">melissa@mifinancials.com</a></p>
+      </div>
+    </div>
+  </div>
+</div>
