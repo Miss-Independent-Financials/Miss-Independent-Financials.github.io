@@ -1,4 +1,5 @@
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import MarkdownIt from "markdown-it";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('assets');
@@ -6,4 +7,5 @@ export default function (eleventyConfig) {
   eleventyConfig.setIncludesDirectory('_includes');
   eleventyConfig.setLayoutsDirectory('_layouts');
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addFilter('markdown', v => MarkdownIt().render(v));
 };

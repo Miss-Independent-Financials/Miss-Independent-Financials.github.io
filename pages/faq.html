@@ -29,7 +29,7 @@ faqs:
   - title: "Getting Started"
     items:
       - question: "How do I get started?"
-        answer: "Getting started is easy! Simply [fill out the contact form](#) or [book a free consultation](#) and we'll set up a quick discovery call to talk about your business needs. From there, I'll provide a personalized quote and next steps."
+        answer: "Getting started is easy! Simply call or [email](mailto:melissa@mifinancials.com) to set up a quick discovery call to talk about your business needs. From there, I’ll provide a personalized package and next steps."
       - question: "How much do your services cost?"
         answer: "Pricing depends on the size of your business and the complexity of your needs. I offer custom packages to ensure you're only paying for what you need. I'm happy to provide a free quote after a short consultation."
 ---
@@ -45,7 +45,7 @@ faqs:
           {% for item in faq.items %}
           <details>
             <summary>{{ item.question }}</summary>
-            <p class="fontsize-m" style="padding-left:30px">{{ item.answer }}</p>
+            <p class="fontsize-m" style="padding-left:30px">{{ item.answer | markdown }}</p>
           </details>
           {% endfor %}
         </div>
@@ -54,3 +54,4 @@ faqs:
     </div>
   </div>
 </div>
+{% include "contact.html" %}
